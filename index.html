@@ -15,6 +15,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 20px;
+      position: relative;
     }
 
     /* Background Slideshow */
@@ -24,7 +25,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -2;
       overflow: hidden;
     }
 
@@ -40,11 +41,11 @@
     }
 
     .slideshow img:nth-child(1) { animation-delay: 0s; }
-    .slideshow img:nth-child(2) { animation-delay: 3s; }
-    .slideshow img:nth-child(3) { animation-delay: 6s; }
-    .slideshow img:nth-child(4) { animation-delay: 9s; }
-    .slideshow img:nth-child(5) { animation-delay: 12s; }
-    .slideshow img:nth-child(6) { animation-delay: 15s; }
+    .slideshow img:nth-child(2) { animation-delay: 6s; }
+    .slideshow img:nth-child(3) { animation-delay: 12s; }
+    .slideshow img:nth-child(4) { animation-delay: 18s; }
+    .slideshow img:nth-child(5) { animation-delay: 24s; }
+    .slideshow img:nth-child(6) { animation-delay: 30s; }
 
     @keyframes fade {
       0%   { opacity: 0; }
@@ -54,12 +55,27 @@
       100% { opacity: 0; }
     }
 
-    /* Text */
+    /* Dark Overlay for better text visibility */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55); /* transparent black */
+      z-index: -1;
+    }
+
+    /* Heading */
     h2 {
-      font-size: 26px;
+      font-size: 28px;
       margin-bottom: 25px;
-      color: #fff;
-      text-shadow: 0 0 12px rgba(0, 208, 132, 0.9);
+      color: #ffffff;
+      font-weight: bold;
+      text-shadow: 
+        0 0 8px #ffffff,
+        0 0 16px #edf7f5,
+        0 0 24px rgba(127, 142, 139, 0.8);
     }
 
     /* Buttons */
@@ -67,7 +83,7 @@
       display: block;
       margin: 12px auto;
       padding: 14px 18px;
-      width: 320px;   /* ✅ fixed size */
+      width: 320px;   /* fixed size */
       text-decoration: none;
       color: #fff;
       background: rgba(0, 208, 132, 0.15); /* glass look */
@@ -87,14 +103,14 @@
       border-color: #00ffcc;
     }
 
-    /* ✅ Mobile Responsive Adjustments */
+    /* Mobile Responsive */
     @media (max-width: 600px) {
       h2 {
         font-size: 22px;
         margin-top: 40px;
       }
       a {
-        width: 90%;   /* ✅ all buttons same full width on mobile */
+        width: 90%;
         max-width: 320px;
         font-size: 16px;
         padding: 12px 16px;
@@ -112,6 +128,9 @@
     <img src="https://electriva.in/wp-content/uploads/2022/07/IJ5A2015-1-scaled.jpg" alt="Electriva Background 5">
     <img src="https://electriva.in/wp-content/uploads/2022/07/IJ5A1926-scaled.jpg" alt="Electriva Background 6">
   </div>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
 
   <h2>⚡ Connect with Electriva ⚡</h2>
   
