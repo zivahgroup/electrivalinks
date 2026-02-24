@@ -2,18 +2,27 @@
 <html>
 <head>
   <title>Electriva Links</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
+
+      /* ✅ allow page to grow and scroll */
       min-height: 100vh;
-      overflow: hidden;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;            /* ✅ enable vertical scroll */
+      -webkit-overflow-scrolling: touch;
+
       background: #000;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+
+      /* ✅ don't hard-center vertically (can cause weird mobile behavior) */
+      justify-content: flex-start;
+
       padding: 20px;
       position: relative;
     }
@@ -27,6 +36,9 @@
       height: 100%;
       z-index: -2;
       overflow: hidden;
+
+      /* ✅ don't block scroll/touches */
+      pointer-events: none;
     }
 
     .slideshow img {
@@ -55,39 +67,41 @@
       100% { opacity: 0; }
     }
 
-    /* Dark Overlay for better text visibility */
+    /* Dark Overlay */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55); /* transparent black */
+      background: rgba(0, 0, 0, 0.55);
       z-index: -1;
+
+      /* ✅ don't block scroll/touches */
+      pointer-events: none;
     }
 
-    /* Heading */
     h2 {
       font-size: 28px;
       margin-bottom: 25px;
+      margin-top: 40px; /* ✅ gives breathing space on mobile */
       color: #ffffff;
       font-weight: bold;
-      text-shadow: 
+      text-shadow:
         0 0 8px #ffffff,
         0 0 16px #edf7f5,
         0 0 24px rgba(127, 142, 139, 0.8);
     }
 
-    /* Buttons */
     a {
       display: block;
       margin: 12px auto;
       padding: 14px 18px;
-      width: 90%;           /* responsive for mobile */
-      max-width: 320px;     /* keeps desktop look */
+      width: 90%;
+      max-width: 320px;
       text-decoration: none;
       color: #fff;
-      background: rgba(0, 208, 132, 0.15); /* glass look */
+      background: rgba(0, 208, 132, 0.15);
       border: 2px solid rgba(0, 208, 132, 0.6);
       border-radius: 14px;
       font-size: 17px;
@@ -97,28 +111,20 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    a:hover { 
-      background: rgba(0, 208, 132, 0.9); 
+    a:hover {
+      background: rgba(0, 208, 132, 0.9);
       transform: scale(1.05);
       box-shadow: 0 0 18px #00d084, 0 0 35px #00d084;
       border-color: #00ffcc;
     }
 
-    /* Mobile Responsive */
     @media (max-width: 600px) {
-      h2 {
-        font-size: 22px;
-        margin-top: 40px;
-      }
-      a {
-        font-size: 16px;
-        padding: 12px 16px;
-      }
+      h2 { font-size: 22px; margin-top: 40px; }
+      a { font-size: 16px; padding: 12px 16px; }
     }
   </style>
 </head>
 <body>
-  <!-- Background Slideshow -->
   <div class="slideshow">
     <img src="https://electriva.in/wp-content/uploads/2022/07/Slider2.jpg" alt="Electriva Background 1">
     <img src="https://electriva.in/wp-content/uploads/2022/07/IJ5A1924-scaled.jpg" alt="Electriva Background 2">
@@ -128,21 +134,17 @@
     <img src="https://electriva.in/wp-content/uploads/2022/07/IJ5A1926-scaled.jpg" alt="Electriva Background 6">
   </div>
 
-  <!-- Dark Overlay -->
   <div class="overlay"></div>
 
   <h2>⚡ Connect with Electriva ⚡</h2>
-  
+
   <a href="https://www.linkedin.com/company/electriva/" target="_blank">🔗 LinkedIn</a>
   <a href="https://www.instagram.com/electriva_india?igsh=eGZ4ejhtbHA1Mm5t&utm_source=qr" target="_blank">📸 Instagram</a>
   <a href="https://electriva.in" target="_blank">🌐 Website</a>
   <a href="https://play.google.com/store/apps/details?id=com.electriva&pcampaignid=web_share" target="_blank">📱 Download for Android</a>
   <a href="https://apps.apple.com/app/id1618431262" target="_blank">📱 Download for iOS</a>
   <a href="https://www.youtube.com/watch?v=PAtJ2ir2iGc" target="_blank">▶️ YouTube</a>
-  <a href="https://www.facebook.com/share/1CkZugWMxz/?mibextid=wwXIfr" target="_blank">📘 Facebook</a> 
+  <a href="https://www.facebook.com/share/1CkZugWMxz/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
   <a href="https://wa.me/917835968296" target="_blank">💬 WhatsApp</a>
 </body>
 </html>
-
-
-
